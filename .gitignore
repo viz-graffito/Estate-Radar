@@ -1,0 +1,48 @@
+
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data and models
+data/raw/.
+data/interim/.
+data/processed/.
+data/external/.
+models/.
+artifacts/
+
+# Temporary and log files
+*.log
+*.temp
+*.tmp
+
+# Environment files
+.env
+.venv/
+*.envrc
+env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Dependency managers
+Pipfile.lock
+poetry.lock
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# IDE files
+.idea/
+.vscode/
+
+# TensorBoard and training logs
+logs/
+*.ckpt
