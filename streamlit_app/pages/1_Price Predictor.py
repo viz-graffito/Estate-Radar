@@ -58,7 +58,7 @@ furnishing_type = st.selectbox('Furnishing Type',sorted(df['furnishing_type'].un
 luxury_category = st.selectbox('Luxury Category',sorted(df['luxury_category'].unique().tolist()))
 floor_category = st.selectbox('Floor Category',sorted(df['floor_category'].unique().tolist()))
 
-if st.button('Predict'):
+if st.button('Predict'): 
 
     # form a dataframe
     data = [[property_type, sector, bedrooms, bathroom, balcony, property_age, built_up_area, servant_room, store_room, furnishing_type, luxury_category, floor_category]]
