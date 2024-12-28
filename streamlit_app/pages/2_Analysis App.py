@@ -10,11 +10,11 @@ st.set_page_config(page_title="Plotting Demo")
 
 st.title('Analytics')
 
-new_df = pd.read_csv('datasets/data_viz1.csv')
-feature_text = pickle.load(open('datasets/feature_text.pkl','rb'))
+new_df = pd.read_csv('streamlit_app/datasets/data_viz1.csv')
+feature_text = pickle.load(open('streamlit_app/datasets/feature_text.pkl','rb'))
 
 
-group_df = new_df.groupby('sector').mean()[['price','price_per_sqft','built_up_area','latitude','longitude']]
+group_df = new_df[['sector','price','price_per_sqft','built_up_area','latitude','longitude']].groupby('sector').mean()
 
 st.header('Sector Price per Sqft Geomap')
 fig = px.scatter_mapbox(group_df, lat="latitude", lon="longitude", color="price_per_sqft", size='built_up_area',
@@ -78,6 +78,7 @@ st.plotly_chart(fig3, use_container_width=True)
 st.header('Side by Side Distplot for property type')
 
 fig3 = plt.figure(figsize=(10, 4))
+# fig3 , ax = plt.subplots(figsize=(10, 4))
 sns.distplot(new_df[new_df['property_type'] == 'house']['price'],label='house')
 sns.distplot(new_df[new_df['property_type'] == 'flat']['price'], label='flat')
 plt.legend()
